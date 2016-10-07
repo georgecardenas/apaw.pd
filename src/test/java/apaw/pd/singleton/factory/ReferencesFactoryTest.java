@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import apaw.pd.ReferencesFactory;
+import apaw.pd.singleton.factory.ReferencesFactory;
 
 public class ReferencesFactoryTest {
     private ReferencesFactory factory;

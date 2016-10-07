@@ -1,4 +1,4 @@
-package apaw.pd;
+package apaw.pd.singleton.factory;
 
 import java.util.HashMap;
 import java.util.Map;

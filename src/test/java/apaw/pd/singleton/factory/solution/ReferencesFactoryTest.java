@@ -6,7 +6,7 @@ import static org.junit.Assert.assertSame;
 
 import org.junit.Test;
 
-import apaw.pd.ReferencesFactory;
+import apaw.pd.singleton.factory.ReferencesFactory;
 
 public class ReferencesFactoryTest {
 
