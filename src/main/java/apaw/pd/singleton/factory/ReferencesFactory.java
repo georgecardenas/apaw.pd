@@ -11,8 +11,8 @@ public class ReferencesFactory {
     
     private static ReferencesFactory referencesFactory;
     
-    public ReferencesFactory(){
-        references = new HashMap<String, Integer>();
+    private ReferencesFactory(){
+        references = new HashMap<>();
         reference = 0;
     }
     
@@ -24,15 +24,17 @@ public class ReferencesFactory {
         return ReferencesFactory.referencesFactory;
     }
 
-    public int getReference(String string) {
-        if (!references.containsKey(string)){
-            references.put(string, reference);
+    public int getReference(String key) {
+        Integer result = this.references.get(key);
+        if (result == null) {
+            this.references.put(key, this.reference);
+            result = this.reference;
             reference++;
         }
-        return references.get(string);
+        return result;
     }
 
-    public void removeReference(String string) {
-        references.remove(string);
+    public void removeReference(String key) {
+        references.remove(key);
     }
 }
