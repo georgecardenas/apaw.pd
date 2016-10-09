@@ -6,7 +6,7 @@ public abstract class Texto {
     
     public abstract void remove(Texto texto);
     
-    public abstract String print();
+    public abstract String print(boolean mayus);
     
-    public abstract String printMayuscula();
+    public abstract boolean esCompuesto();
 }

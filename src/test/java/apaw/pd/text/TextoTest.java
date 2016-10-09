@@ -1,4 +1,4 @@
-package es.upm.miw.pd.text.solution;
+package apaw.pd.text;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -7,33 +7,28 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.upm.miw.pd.text.solution.Componente;
-import es.upm.miw.pd.text.solution.FactoriaCaracter;
-import es.upm.miw.pd.text.solution.Parrafo;
-import es.upm.miw.pd.text.solution.Texto;
-
 public class TextoTest {
-    private Componente H, o, l, a, pf, txt;
+    private Texto H, o, l, a, pf, txt;
 
     @Before
     public void ini() {
-        H = FactoriaCaracter.getFactoria().get('H');
-        o = FactoriaCaracter.getFactoria().get('o');
-        l = FactoriaCaracter.getFactoria().get('l');
-        a = FactoriaCaracter.getFactoria().get('a');
+        H = FactoriaCaracter.getFactoria().getCaracter('H');
+        o = FactoriaCaracter.getFactoria().getCaracter('o');
+        l = FactoriaCaracter.getFactoria().getCaracter('l');
+        a = FactoriaCaracter.getFactoria().getCaracter('a');
         pf = new Parrafo();
         pf.add(H);
         pf.add(o);
         pf.add(l);
         pf.add(a);
-        txt = new Texto();
+        txt = new TextoAnidado();
         txt.add(pf);
         txt.add(pf);
     }
 
     @Test
     public void testCaracterFlyweight() {
-        assertSame(H, FactoriaCaracter.getFactoria().get('H'));
+        assertSame(H, FactoriaCaracter.getFactoria().getCaracter('H'));
     }
 
     @Test
@@ -43,24 +38,24 @@ public class TextoTest {
 
     @Test
     public void testDibujarCaracterNormal() {
-        assertEquals("o", o.dibujar(false));
+        assertEquals("o", o.print(false));
     }
 
     @Test
     public void testDibujarCaracterMayusculas() {
-        assertEquals("O", o.dibujar(true));
+        assertEquals("O", o.print(true));
     }
 
     // ----------------------------------------------
 
     @Test
     public void testParrafoNormal() {
-        assertEquals("Hola\n", pf.dibujar(false));
+        assertEquals("Hola\n", pf.print(false));
     }
 
     @Test
     public void testParrafoMayusculas() {
-        assertEquals("HOLA\n", pf.dibujar(true));
+        assertEquals("HOLA\n", pf.print(true));
     }
 
     @Test
@@ -77,12 +72,12 @@ public class TextoTest {
 
     @Test
     public void testTextoNormal() {
-        assertEquals("Hola\nHola\n---o---\n",txt.dibujar(false));
+        assertEquals("Hola\nHola\n---o---\n",txt.print(false));
     }
     
     @Test
     public void testTextoMayusculas() {
-        assertEquals("HOLA\nHOLA\n---o---\n",txt.dibujar(true));
+        assertEquals("HOLA\nHOLA\n---o---\n",txt.print(true));
     }
     
     @Test

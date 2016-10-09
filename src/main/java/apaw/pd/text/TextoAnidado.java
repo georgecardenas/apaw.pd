@@ -1,9 +1,10 @@
 package apaw.pd.text;
 
-public class Parrafo extends TextoCompuesto{
+public class TextoAnidado extends TextoCompuesto{
+
     @Override
     public void add(Texto texto) {
-        if (!texto.esCompuesto()){
+        if (texto.esCompuesto()){
             elementos.add(texto);
         }else{
             throw new UnsupportedOperationException("Esta operación no está permitida");
@@ -12,7 +13,7 @@ public class Parrafo extends TextoCompuesto{
 
     @Override
     public void remove(Texto texto) {
-        if (!texto.esCompuesto()){
+        if (texto.esCompuesto()){
             elementos.remove(texto);
         }
     }
@@ -23,12 +24,14 @@ public class Parrafo extends TextoCompuesto{
         for(Texto caracter : elementos){
             result += caracter.print(mayus);
         }
-        result += "\n";
+        result += "---o---\n";
         return result;
     }
 
     @Override
     public boolean esCompuesto() {
-        return true;
+        // TODO Auto-generated method stub
+        return false;
     }
+    
 }
