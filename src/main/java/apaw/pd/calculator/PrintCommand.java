@@ -1,5 +1,7 @@
 package apaw.pd.calculator;
 
+import upm.jbb.IO;
+
 public class PrintCommand extends Operation{
 
     public PrintCommand(Calculator receptor) {
@@ -8,7 +10,7 @@ public class PrintCommand extends Operation{
 
     @Override
     public void execute() {
-        this.receptor.getTotal();
+        IO.getIO().println(this.receptor.getTotal());
     }
 
     @Override

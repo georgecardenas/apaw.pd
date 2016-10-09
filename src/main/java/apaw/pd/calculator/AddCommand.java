@@ -1,5 +1,7 @@
 package apaw.pd.calculator;
 
+import upm.jbb.IO;
+
 public class AddCommand extends Operation{
 
     public AddCommand(Calculator receptor) {
@@ -8,7 +10,7 @@ public class AddCommand extends Operation{
 
     @Override
     public void execute() {
-        this.receptor.add(1);
+        this.receptor.add(IO.getIO().readInt());
     }
 
     @Override

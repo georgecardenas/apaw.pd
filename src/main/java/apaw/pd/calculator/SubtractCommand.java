@@ -1,5 +1,7 @@
 package apaw.pd.calculator;
 
+import upm.jbb.IO;
+
 public class SubtractCommand extends Operation{
 
     public SubtractCommand(Calculator receptor) {
@@ -8,7 +10,7 @@ public class SubtractCommand extends Operation{
 
     @Override
     public void execute() {
-        this.receptor.subtract(1);
+        this.receptor.subtract(IO.getIO().readInt());
     }
 
     @Override
