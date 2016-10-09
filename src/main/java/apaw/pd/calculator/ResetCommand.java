@@ -13,7 +13,7 @@ public class ResetCommand extends Operation{
 
     @Override
     public String name() {
-        return "ResetCommand";
+        return "COmando Reset";
     }
 
 }

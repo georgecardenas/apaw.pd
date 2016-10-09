@@ -15,7 +15,7 @@ public class PrintCommand extends Operation{
 
     @Override
     public String name() {
-        return "PrintCommand";
+        return "Comando Mostrar";
     }
 
 }

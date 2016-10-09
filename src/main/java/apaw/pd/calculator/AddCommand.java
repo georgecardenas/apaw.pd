@@ -15,7 +15,7 @@ public class AddCommand extends Operation{
 
     @Override
     public String name() {
-        return "AddCommand";
+        return "Comando suma";
     }
 
 }

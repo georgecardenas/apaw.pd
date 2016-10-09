@@ -4,14 +4,18 @@ import upm.jbb.IO;
 
 public class MainCalculator {
     private CommandManager commandManager;
+    private GestorMementos<Integer> gestorMementos;
 
     public MainCalculator() {
-        Calculator calculator = new Calculator();
+        Calculator calculator = new MementoCalculadora();
+        gestorMementos = new GestorMementos<>();
         this.commandManager = new CommandManager();
         this.commandManager.add(new AddCommand(calculator));
         this.commandManager.add(new SubtractCommand(calculator));
         this.commandManager.add(new ResetCommand(calculator));
         this.commandManager.add(new PrintCommand(calculator));
+        this.commandManager.add(new ComandoGuardar((MementoCalculadora)calculator, gestorMementos));
+        this.commandManager.add(new ComandoDeshacer((MementoCalculadora)calculator, gestorMementos));
     }
 
     public void execute() {

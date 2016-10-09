@@ -15,7 +15,7 @@ public class SubtractCommand extends Operation{
 
     @Override
     public String name() {
-        return "SubtractCommand";
+        return "Comando Resta";
     }
 
 }
